@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
@@ -12,6 +13,7 @@ import AuthDialog from '@/components/AuthDialog';
 export default function Index() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [authTab, setAuthTab] = useState<'login' | 'register'>('login');
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setAuthTab('login');
@@ -24,7 +26,7 @@ export default function Index() {
   };
 
   const handleRequestClick = () => {
-    document.getElementById('requests')?.scrollIntoView({ behavior: 'smooth' });
+    navigate('/requests');
   };
 
   return (

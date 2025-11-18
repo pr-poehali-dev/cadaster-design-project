@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const services = [
   {
@@ -42,6 +43,8 @@ const services = [
 ];
 
 export default function Services() {
+  const navigate = useNavigate();
+
   return (
     <section id="services" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto">
@@ -75,7 +78,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full group">
+                <Button variant="outline" className="w-full group" onClick={() => navigate('/services')}>
                   Подробнее
                   <Icon name="ArrowRight" size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
